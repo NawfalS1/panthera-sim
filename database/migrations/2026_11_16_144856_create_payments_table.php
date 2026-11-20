@@ -11,10 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+      Schema::create('payments', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('order_id')->constrained()->cascadeOnDelete();
+    $table->enum('payment_type', ['dp', 'pelunasan']);
+    $table->decimal('amount', 12, 2);
+    $table->enum('payment_method', ['tunai', 'transfer'])->default('transfer');
+    $table->date('payment_date');
+    $table->string('proof_file')->nullable();
+    $table->timestamps();
+});
     }
 
     /**

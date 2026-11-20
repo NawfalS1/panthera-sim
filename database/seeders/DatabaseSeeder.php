@@ -12,23 +12,20 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Akun Admin (Pemilik Usaha - Bang Rico)
         User::create([
-            'name' => 'Bang Rico (Admin)',
+            'name' => ' Rico Hussein (Admin)',
             'email' => 'admin@panthera.com',
             'role' => 'admin',
             'password' => Hash::make('password123'),
         ]);
 
-        // Akun Pegawai (Tim Produksi)
         User::create([
-            'name' => 'Staf Produksi Panthera',
+            'name' => 'Staf  Panthera',
             'email' => 'pegawai@panthera.com',
             'role' => 'pegawai',
             'password' => Hash::make('password123'),
         ]);
 
-        // Katalog Produk Panthera (Stok Mandiri & Jakarta)
         Product::insert([
             [
                 'name' => 'Kaos Custom Sablon Plastisol',
@@ -64,7 +61,6 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
-        // Contoh Data Pelanggan Awal
         Customer::create([
             'name' => 'Himpunan Mahasiswa Informatika UNJA',
             'whatsapp_number' => '6281234567890',

@@ -12,9 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+    $table->id();
+    $table->string('name');
+    $table->string('material')->nullable();
+    $table->enum('stock_source', ['mandiri', 'jakarta'])->default('mandiri');
+    $table->decimal('base_price', 12, 2);
+    $table->timestamps();
+});
     }
 
     /**
